@@ -26,6 +26,8 @@ public class MyFirstWindow extends WindowController
     private FramedRect rect1;
     private FilledOval oval1; // Head
     private FramedOval frameOval1;
+    
+    int clicks;
     // DrawingCanvas canvas; we get this for free by extending WindowController
 
     public void begin(){
@@ -39,7 +41,7 @@ public class MyFirstWindow extends WindowController
         
         //               x , y, dx, dy
         // Draw Rope
-        line1 = new Line(25, 75, 25, 25, canvas);
+        line1 = new Line(25, 125, 25, 25, canvas);
         line2 = new Line(25, 25, 75, 25, canvas);
         line3 = new Line(50, 25, 50, 50, canvas);
         
@@ -51,8 +53,40 @@ public class MyFirstWindow extends WindowController
         line7 = new Line(50, 85, 65, 95, canvas); //RLeg
         line8 = new Line(50, 85, 35, 95, canvas); // LLeg
         
+        // Hide parts
+        oval1.hide();
+        line4.hide();
+        line5.hide();
+        line6.hide();
+        line7.hide();
+        line8.hide();
     }
 
     public void onMouseClick(Location p){
+        clicks++;
+        if(clicks == 1){
+            oval1.show();
+        }else if(clicks == 2){
+            line4.show();
+        }else if(clicks == 3){
+            line5.show();
+        }else if(clicks == 4){
+            line6.show();
+        }else if(clicks == 5){
+            line7.show();
+        }else if(clicks == 6){
+            line8.show();
+        }
+    }
+    
+    public void onMouseExit(Location p){
+        oval1.hide();
+        line4.hide();
+        line5.hide();
+        line6.hide();
+        line7.hide();
+        line8.hide();
+        
+        clicks = 0;
     }
 }

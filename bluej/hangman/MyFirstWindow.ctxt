@@ -3,4 +3,6 @@ comment0.params=
 comment0.target=void\ begin()
 comment1.params=p
 comment1.target=void\ onMouseClick(objectdraw.Location)
-numComments=2
+comment2.params=p
+comment2.target=void\ onMouseExit(objectdraw.Location)
+numComments=3
